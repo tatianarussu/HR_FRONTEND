@@ -1,0 +1,13 @@
+md-card{
+    margin: 5% 35%;
+    height: 70%;
+    width: 30%;
+}
+md-input-container {
+    position: relative;
+    left: 20%;
+}
+button{
+    position: relative;
+    left: 40%;
+}

@@ -1,0 +1,11 @@
+md-card {
+    margin: 0% 25%;
+    width: 50%;
+    height: 70%;
+}
+button{
+    background-color: #2196f3;;
+    position: relative;
+    top: 70px;
+    left: 150px;
+}

@@ -1,0 +1,14 @@
+md-card{
+    margin: 0% 20%;
+    height: 70%;
+    width: 60%;
+}
+button{
+    width: 25%;
+}
+div textarea{
+    min-height: 80px;
+}
+#add{
+    width: 7%
+}

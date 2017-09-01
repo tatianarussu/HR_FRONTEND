@@ -1,0 +1,113 @@
+<md-card *ngIf="profileEditForm">
+    <md-toolbar color="primary">
+        <span>Create new profile</span>
+    </md-toolbar>
+
+    <form [formGroup]="profileEditForm" (ngSubmit)="onSubmit()">
+        <div>
+            <button md-button
+                    *ngFor="let step of steps; let i = index"
+                    (click)="changeCurrentPage(i)"
+            >
+                {{ step }}
+            </button>
+
+            <div  *ngIf="currentPageIndex === 0">
+                <div formGroupName="about">
+                    <md-input-container>
+                        <input mdInput placeholder="FirstName" [formControlName]="'first_name'">
+                    </md-input-container>
+                    <md-input-container>
+                        <input mdInput placeholder="LastName" [formControlName]="'last_name'">
+                    </md-input-container>
+                    <br>
+                    <md-input-container>
+                        <textarea mdInput placeholder="Description" [formControlName]="'description'"></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+
+            <div  *ngIf="currentPageIndex === 1">
+                <div formGroupName="education" >
+                    <md-input-container>
+                        <input mdInput placeholder="Name" [formControlName]="'school_name'" >
+                    </md-input-container>
+                    <md-input-container>
+                        <input mdInput placeholder="Graduated Year" [formControlName]="'graduated_year'">
+                    </md-input-container>
+                    <br>
+                    <br>
+                    <md-input-container>
+                        <textarea mdInput placeholder="Description" [formControlName]="'description'"></textarea>
+                    </md-input-container>
+                </div>
+
+            </div>
+
+            <div  *ngIf="currentPageIndex === 2">
+                <div [formArrayName]="'work'">
+                    <md-input-container>
+                        <input mdInput placeholder="Company Name" [formControlName]="'company_name'">
+                    </md-input-container>
+                    <md-input-container>
+                        <input mdInput placeholder="Position" [formControlName]="'position'">
+                    </md-input-container>
+                    <br>
+                    <br>
+
+                    <md-input-container>
+                        <input mdInput [mdDatepicker]="startpicker" placeholder="Choose a start date" [formControlName]="'start_data'">
+                        <md-datepicker-toggle mdSuffix [for]="startpicker"></md-datepicker-toggle>
+                    </md-input-container>
+                    <md-datepicker #startpicker></md-datepicker>
+
+                    <md-input-container>
+                        <input mdInput [mdDatepicker]="endpicker" placeholder="Choose a end date" [formControlName]="'end_data'">
+                        <md-datepicker-toggle mdSuffix [for]="endpicker"></md-datepicker-toggle>
+                    </md-input-container>
+                    <md-datepicker #endpicker></md-datepicker>
+
+                </div>
+            </div>
+
+            <div  *ngIf="currentPageIndex === 3">
+                <div [formArrayName]="'skills'">
+                    <h4>Choose your skills:</h4>
+                    <button  id="add"
+                            md-icon-button
+                            md-raised-button
+                            color="primary"
+                            (click)="addSkillsToList()"
+                    >
+                        <md-icon>add</md-icon>
+                    </button>
+
+                    <div *ngFor="let control of profileEditForm.get('skills').controls; let i = index">
+                    <label>Skills{{ i + 1 }}</label>
+                    <select [formControlName]="i">
+                        <option *ngFor="let skills of SkillList" [ngValue]="skills.id">
+                            {{ skills.name }}
+                        </option>
+                    </select>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <button type="button" *ngIf="currentPageIndex !== 0"
+                    (click)="changeCurrentPage(currentPageIndex - 1)">Previous</button>
+
+            <button
+                    type="button"
+                    *ngIf="currentPageIndex !== steps.length - 1"
+                    (click)="changeCurrentPage(currentPageIndex + 1)">Next</button>
+
+            <button id="save"  *ngIf="currentPageIndex === steps.length - 1">Save</button>
+        </div>
+
+    </form>
+
+</md-card>
+

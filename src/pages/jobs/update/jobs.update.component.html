@@ -1,0 +1,39 @@
+<md-card>
+    <md-toolbar color="primary">
+        <span>Update job:</span>
+    </md-toolbar>
+    <form
+            [formGroup]="updateForm"
+            (ngSubmit)="update()"
+    >
+        <br>
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">person_outline</md-icon>&nbsp;Name
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'name'" [(ngModel)]="name">
+        </md-input-container>
+
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">share</md-icon>&nbsp;Description
+            </md-placeholder>
+            <input mdInput type="text" [(ngModel)]="description" [formControlName]="'description'">
+        </md-input-container>
+
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">share</md-icon>&nbsp;Benefits
+            </md-placeholder>
+            <input mdInput type="text" [(ngModel)]="benefits" [formControlName]="'benefits'">
+        </md-input-container>
+        <br>
+
+
+        <button id="submit">Save</button>
+    </form>
+</md-card>
+

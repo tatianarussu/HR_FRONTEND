@@ -1,0 +1,1 @@
+export { UsersUpdateComponent } from './users.update.component';

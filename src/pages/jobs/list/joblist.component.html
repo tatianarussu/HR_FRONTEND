@@ -1,0 +1,16 @@
+<md-card class="list-jobs ">
+    <md-toolbar color="primary">
+        <span>Job list:</span>
+    </md-toolbar>
+    <md-nav-list *ngIf="jobList">
+        <md-list-item *ngFor="let jobs of jobList" color="primary">
+            <md-icon (click)="onSelect(jobs)" md-list-icon>folder</md-icon>
+            <h6 md-line (click)="onSelect(jobs)">{{ jobs.name }}</h6>
+            <md-icon (click)="delete(jobs.id)">delete</md-icon>
+            <md-icon (click)="updateJob(jobs)">mode_edit</md-icon>
+            <md-icon (click)="applyJob(jobs.id)">spellcheck</md-icon>
+
+
+        </md-list-item>
+    </md-nav-list>
+</md-card>

@@ -1,0 +1,114 @@
+
+.app {
+    display: flex;
+    background-color: #fffbf5;
+}
+.app aside {
+    min-height: 100vh;
+    min-width: 200px;
+    background-color: rgb(144, 201, 247);
+}
+h1{
+    font-size: 45px;
+    text-align: center;
+    color: white
+}
+.logo{
+    height: 61px ;
+    border-bottom: 1px solid white;
+}
+.router-content{
+    width: 100%;
+    text-align: center;
+}
+#menu{
+    background-color: #90c9f7;;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width:100%;
+    outline: none;
+
+
+} .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: #90c9f7;;
+}
+
+.container a:hover, .dropdown:hover .dropbtn {
+    background-color: #2196f3;;
+}
+
+button:hover {
+    background-color: #2196f3;;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    top: 0px;
+    left: 200px;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header{
+    background-color: #fffbf5;
+    width: 100%;
+}
+md-toolbar{
+    background-color: #fffbf5;
+    height: 40px;
+
+}
+footer{
+    text-align: center;
+    background-color: #fffbf5;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0px;
+    width: 100%;
+}
+md-toolbar .spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+span{
+    color: #2196f3;
+}
+h3{
+    color: #2196f3;
+}

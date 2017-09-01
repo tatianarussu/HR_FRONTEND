@@ -1,0 +1,31 @@
+<md-card >
+    <md-toolbar color="primary">
+        <span>Update user:</span>
+    </md-toolbar>
+
+
+    <form
+            [formGroup]="userUpdateForm"
+            (ngSubmit)="update()"
+    >
+        <br>
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">person</md-icon>&nbsp;Username
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'username'"  [(ngModel)]="username">
+        </md-input-container>
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">vpn_key</md-icon>&nbsp;Password
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'password'"  [(ngModel)]="password">
+        </md-input-container>
+        <br>
+        <br>
+        <button id="submit" >Save</button>
+    </form>
+
+</md-card>

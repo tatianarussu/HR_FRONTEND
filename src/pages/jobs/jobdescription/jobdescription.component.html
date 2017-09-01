@@ -1,0 +1,17 @@
+<div  *ngIf = "job">
+    <div class="box1">
+        <h2 *ngIf = "job.name">Name:
+            <br> <span>{{job.name}}</span></h2>
+        <p *ngIf = "job.description">Description:
+            <br><span>{{job.description}}</span></p>
+         <p *ngIf = "job.benefits">Benefits:
+            <br><span>{{job.benefits}}</span> </p>
+    </div>
+          <p *ngFor="let skills of job.Skills"> Skills:<span> {{ skills.name}}</span> </p>
+
+    <p *ngFor="let user of job.users">Users who applied:<span>{{user.username}}</span> </p>
+</div>
+
+
+
+

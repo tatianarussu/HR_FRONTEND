@@ -1,0 +1,62 @@
+<div class="app">
+    <aside>
+        <br>
+        <br>
+        <br>
+
+        <button id="menu" routerLink="home">Home</button>
+        <div class="dropdown">
+            <button  routerLink="users" *ngIf="currentUserInfo.user_role_id === 1 " class="dropbtn">Users</button>
+
+            <div class="dropdown-content">
+                <a routerLink="users/create">Create</a>
+                <a routerLink="users/list">List</a>
+            </div>
+        </div>
+        <button id="menu" *ngIf="currentUserInfo.user_role_id > 1 " routerLink="profile">Profile</button>
+
+        <div  class="dropdown">
+            <button routerLink="jobs" *ngIf="currentUserInfo.user_role_id  > 1 "  class="dropbtn">Jobs</button>
+
+            <div class="dropdown-content">
+                <a *ngIf="currentUserInfo.user_role_id === 2" routerLink="jobs/create" >Create</a>
+                <a *ngIf="currentUserInfo.user_role_id  > 1" routerLink="jobs/list">List</a>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <div class="router-content">
+        <header>
+        <md-toolbar >
+            <span>Arobs Job assistance</span>
+            <span class="spacer"></span>
+            <h3 *ngIf="currentUserInfo.user_role_id  === 2" >HR</h3>
+            <h3 *ngIf="currentUserInfo.user_role_id  === 3" >USER</h3>
+            <h3 *ngIf="currentUserInfo.user_role_id  === 1" >ADMIN</h3>
+
+            <button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon  >more_vert</md-icon>
+            </button >
+            <md-menu #menu="mdMenu" color="primary">
+
+                <button md-menu-item (click)="onLogOut()">
+                    <md-icon>fingerprint</md-icon>
+                    <span>Logout</span>
+                </button>
+
+            </md-menu>
+
+        </md-toolbar>
+        </header>
+
+        <router-outlet>
+        </router-outlet>
+
+        <footer>Tatiana Russu @Arobs</footer>
+    </div>
+</div>
+
+
+

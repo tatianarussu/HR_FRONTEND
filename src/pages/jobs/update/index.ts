@@ -1,0 +1,1 @@
+export { JobsUpdateComponent } from './jobs.update.component';

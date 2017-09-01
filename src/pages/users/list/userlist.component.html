@@ -1,0 +1,14 @@
+<md-card class="list-jobs ">
+    <md-toolbar color="primary">
+        <span>User list:</span>
+    </md-toolbar>
+    <md-nav-list *ngIf="userList">
+        <md-list-item *ngFor="let user of userList"  color="primary">
+            <md-icon (click)="onSelect(user)" md-list-icon>person</md-icon>
+            <h5 md-line (click)="onSelect(user)"> {{ user.username }} </h5>
+            <h6 md-line (click)="onSelect(user)"> User role id: {{ user.user_role_id }} </h6>
+            <md-icon (click)="delete(user.id)">delete</md-icon>
+            <md-icon (click)="updateUser(user)">mode_edit</md-icon>
+        </md-list-item>
+    </md-nav-list>
+</md-card>

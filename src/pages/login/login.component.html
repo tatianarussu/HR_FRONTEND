@@ -1,0 +1,29 @@
+
+<md-card >
+    <md-toolbar color="primary">
+        <span>Log in</span>
+    </md-toolbar>
+    <form
+            [formGroup]="createLogin"
+            (ngSubmit)="onSubmit()"
+    >
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">person_outline</md-icon>&nbsp;Username
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'username'">
+        </md-input-container>
+
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">share</md-icon>&nbsp;Password
+            </md-placeholder>
+            <input mdInput type="password" [formControlName]="'password'">
+        </md-input-container>
+        <br>
+        <br>
+        <button>Log in</button>
+    </form>
+</md-card>

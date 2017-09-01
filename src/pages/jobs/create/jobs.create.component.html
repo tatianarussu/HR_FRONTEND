@@ -1,0 +1,61 @@
+<md-card >
+    <md-toolbar color="primary">
+        <span>Create new job</span>
+    </md-toolbar>
+    <form
+        [formGroup]="createJobForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">person_outline</md-icon>&nbsp;Name
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'name'">
+        </md-input-container>
+
+        <br>
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">share</md-icon>&nbsp;Description
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'description'">
+        </md-input-container>
+
+        <br>
+
+        <md-input-container>
+            <md-placeholder>
+                <md-icon class="material-icons">dialpad</md-icon>&nbsp;Benefits
+            </md-placeholder>
+            <input mdInput type="text" [formControlName]="'benefits'">
+        </md-input-container>
+
+        <br>
+        <div [formArrayName]="'requirements'">
+            <h4>Requirements</h4>
+
+            <button type="button" id="add"
+                md-icon-button
+                md-raised-button
+                color="primary"
+                (click)="addRequirementsToList()"
+            >
+                <md-icon>add</md-icon>
+            </button>
+
+
+            <div *ngFor="let control of createJobForm.get('requirements').controls; let i = index">
+                <label>Requirement{{ i + 1 }}</label>
+                <select [formControlName]="i">
+                    <option *ngFor="let skills of SkillList" [ngValue]="skills.id">
+                        {{ skills.name }}
+                    </option>
+                </select>
+
+            </div>
+
+        </div>
+        <button id="submit" >Save</button>
+    </form>
+</md-card>
+
